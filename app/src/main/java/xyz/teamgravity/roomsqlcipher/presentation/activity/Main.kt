@@ -1,4 +1,4 @@
-package xyz.teamgravity.roomsqlcipher
+package xyz.teamgravity.roomsqlcipher.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import xyz.teamgravity.roomsqlcipher.ui.theme.RoomSQLCipherTheme
+import xyz.teamgravity.roomsqlcipher.presentation.theme.RoomSQLCipherTheme
 
-class MainActivity : ComponentActivity() {
+class Main : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

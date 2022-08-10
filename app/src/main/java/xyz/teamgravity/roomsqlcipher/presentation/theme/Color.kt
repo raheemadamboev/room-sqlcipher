@@ -1,4 +1,4 @@
-package xyz.teamgravity.roomsqlcipher.ui.theme
+package xyz.teamgravity.roomsqlcipher.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
