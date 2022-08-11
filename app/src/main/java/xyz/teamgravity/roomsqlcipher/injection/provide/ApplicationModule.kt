@@ -11,7 +11,7 @@ import xyz.teamgravity.roomsqlcipher.core.util.FootballerRandom
 import xyz.teamgravity.roomsqlcipher.data.local.constant.FootballerConst
 import xyz.teamgravity.roomsqlcipher.data.local.dao.FootballerDao
 import xyz.teamgravity.roomsqlcipher.data.local.database.FootballerDatabase
-import xyz.teamgravity.roomsqlcipher.data.local.database.FootballerPassphrase
+import xyz.teamgravity.roomsqlcipher.data.local.passphrase.FootballerPassphrase
 import xyz.teamgravity.roomsqlcipher.data.repository.FootballerRepository
 import javax.inject.Singleton
 
