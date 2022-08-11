@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "xyz.teamgravity.roomsqlcipher"
-        minSdk 21
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -86,6 +86,9 @@ dependencies {
     implementation "androidx.room:room-runtime:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
+
+    // security
+    implementation "androidx.security:security-crypto:1.0.0"
 
     // sqlcipher
     implementation "net.zetetic:android-database-sqlcipher:4.5.0"
