@@ -4,6 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
+import xyz.teamgravity.roomsqlcipher.core.util.FootballerRandom
 import xyz.teamgravity.roomsqlcipher.data.local.dao.FootballerDao
 import xyz.teamgravity.roomsqlcipher.data.mapper.toEntity
 import xyz.teamgravity.roomsqlcipher.data.mapper.toModel
@@ -11,15 +12,16 @@ import xyz.teamgravity.roomsqlcipher.data.model.FootballerModel
 
 class FootballerRepository(
     private val dao: FootballerDao,
+    private val random: FootballerRandom,
 ) {
 
     ///////////////////////////////////////////////////////////////////////////
     // INSERT
     ///////////////////////////////////////////////////////////////////////////
 
-    suspend fun replaceFootballers(footballers: List<FootballerModel>) {
+    suspend fun replaceFootballers() {
         withContext(Dispatchers.IO) {
-            dao.replaceFootballers(footballers.map { it.toEntity() })
+            dao.replaceFootballers(random.nextTeam().map { it.toEntity() })
         }
     }
 
