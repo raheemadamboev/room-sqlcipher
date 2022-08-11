@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import xyz.teamgravity.roomsqlcipher.core.util.FootballerRandom
 import xyz.teamgravity.roomsqlcipher.data.local.constant.FootballerConst
 import xyz.teamgravity.roomsqlcipher.data.local.dao.FootballerDao
 import xyz.teamgravity.roomsqlcipher.data.local.database.FootballerDatabase
@@ -29,5 +30,10 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideFootballerRepository(footballerDao: FootballerDao): FootballerRepository = FootballerRepository(footballerDao)
+    fun provideFootballerRandom(): FootballerRandom = FootballerRandom()
+
+    @Provides
+    @Singleton
+    fun provideFootballerRepository(footballerDao: FootballerDao, footballerRandom: FootballerRandom): FootballerRepository =
+        FootballerRepository(dao = footballerDao, random = footballerRandom)
 }
