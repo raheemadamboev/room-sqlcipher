@@ -12,7 +12,6 @@ data class FootballerEntity(
     val id: Long,
 
     val name: String,
-    val number: Int,
     val ranking: Int,
     val position: Position,
 )
