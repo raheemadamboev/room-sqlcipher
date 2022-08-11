@@ -6,10 +6,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import net.sqlcipher.database.SupportFactory
 import xyz.teamgravity.roomsqlcipher.core.util.FootballerRandom
 import xyz.teamgravity.roomsqlcipher.data.local.constant.FootballerConst
 import xyz.teamgravity.roomsqlcipher.data.local.dao.FootballerDao
 import xyz.teamgravity.roomsqlcipher.data.local.database.FootballerDatabase
+import xyz.teamgravity.roomsqlcipher.data.local.database.FootballerPassphrase
 import xyz.teamgravity.roomsqlcipher.data.repository.FootballerRepository
 import javax.inject.Singleton
 
@@ -19,8 +21,18 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideFootballerDatabase(application: Application): FootballerDatabase =
+    fun provideFootballerPassphrase(application: Application): FootballerPassphrase = FootballerPassphrase(application)
+
+    @Provides
+    @Singleton
+    fun provideSupportFactory(footballerPassphrase: FootballerPassphrase): SupportFactory =
+        SupportFactory(footballerPassphrase.getPassphrase())
+
+    @Provides
+    @Singleton
+    fun provideFootballerDatabase(application: Application, supportFactory: SupportFactory): FootballerDatabase =
         Room.databaseBuilder(application, FootballerDatabase::class.java, FootballerConst.NAME)
+            .openHelperFactory(supportFactory)
             .fallbackToDestructiveMigration()
             .build()
 
