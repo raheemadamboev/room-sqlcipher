@@ -188,7 +188,7 @@ class FootballerRandom {
     }
 
     private fun getRandomIndexes(until: Int, times: Int): List<Int> {
-        if (times > until) throw RuntimeException()
+        if (times > until) throw IllegalStateException("Times: $times must be less than or equal to Until: $until")
 
         val indexes = mutableListOf<Int>()
         repeat(until) { indexes.add(it) }
