@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Room SQLCipher</string>
+
+    <!-- FootballerList -->
+    <string name="my_team">My team</string>
+    <string name="new_team">New team</string>
 </resources>
