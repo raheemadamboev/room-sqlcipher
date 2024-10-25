@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import xyz.teamgravity.roomsqlcipher.R
 import xyz.teamgravity.roomsqlcipher.presentation.viewmodel.FootballerListViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FootballerListScreen(
     topAppBarState: TopAppBarState = rememberTopAppBarState(),
