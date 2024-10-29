@@ -3,15 +3,17 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 android {
-    compileSdk 32
+    namespace "xyz.teamgravity.roomsqlcipher"
+    compileSdk 34
 
     defaultConfig {
         applicationId "xyz.teamgravity.roomsqlcipher"
         minSdk 23
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -39,10 +41,6 @@ android {
 
     buildFeatures {
         compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion "1.2.0"
     }
 
     packagingOptions {
@@ -79,27 +77,17 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
 
     // hilt
-    implementation 'com.google.dagger:hilt-android:2.43'
-    kapt 'com.google.dagger:hilt-compiler:2.43'
+    implementation 'com.google.dagger:hilt-android:2.49'
+    kapt 'com.google.dagger:hilt-compiler:2.49'
 
     // room
-    implementation "androidx.room:room-runtime:2.4.3"
-    implementation "androidx.room:room-ktx:2.4.3"
-    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-runtime:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
 
     // security
     implementation "androidx.security:security-crypto:1.0.0"
 
     // sqlcipher
     implementation "net.zetetic:android-database-sqlcipher:4.5.0"
-}
-
-allprojects {
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-        kotlinOptions {
-            freeCompilerArgs += [
-                    "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-            ]
-        }
-    }
 }
